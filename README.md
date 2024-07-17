@@ -1,4 +1,14 @@
-## Hi there 👋
+Hello world, 
+I'm Tarh haniya, B.tech student at IIT Madras. nice to meet you :)
+
+## my goals for this year is to:
+   1. make a website
+   2. write a book
+   3. Earn my own money.
+
+## I'm currently working on:
+1. full stack web development
+   
 
 <!--
 **HaniyaTT/HaniyaTT** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
