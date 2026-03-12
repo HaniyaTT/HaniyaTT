@@ -134,7 +134,11 @@
   <!-- Toast shown when audio plays -->
   <div id="audio-toast">🎵 Playing your message…</div>
 
-  <!-- Placeholder audio — replace src with your own file -->
+  <!--
+    Placeholder audio file — REPLACE the src below with your own
+    apology message or song before deploying the app for Lipi.
+    The current URL points to a royalty-free sample from freesound.org.
+  -->
   <audio id="apology-audio" preload="auto"
          src="https://cdn.freesound.org/previews/612/612095_5674468-lq.mp3"></audio>
 
@@ -234,16 +238,21 @@
           var toast = document.getElementById('audio-toast');
           if (toast) {
             toast.style.display = 'block';
-            // Reset animation
             toast.style.animation = 'none';
-            void toast.offsetWidth;           // trigger reflow
+            toast.offsetWidth; // force reflow so the animation restarts
             toast.style.animation = 'fadeInOut 3s ease-in-out forwards';
           }
 
           // Play or restart
           audio.currentTime = 0;
-          audio.play().catch(function () {
-            // iOS may block; user gesture already provided via tap
+          audio.play().catch(function (err) {
+            console.warn('Audio playback failed:', err);
+            if (toast) {
+              toast.textContent = '🔇 Tap again to play audio';
+              toast.style.animation = 'none';
+              toast.offsetWidth;
+              toast.style.animation = 'fadeInOut 3s ease-in-out forwards';
+            }
           });
 
           // Visual feedback — brief scale pulse on the gift box
@@ -350,9 +359,15 @@
           video.srcObject = stream;
           video.play();
         })
-        .catch(function () {
-          // Camera denied — scene still works without AR background
+        .catch(function (err) {
+          console.warn('Camera access denied:', err);
+          // Scene still works without AR camera background
           video.style.background = '#1a1a2e';
+          var hint = document.getElementById('tap-hint');
+          if (hint) {
+            hint.textContent = '📷 Camera unavailable — tap the gift box to hear a message';
+            hint.style.display = 'block';
+          }
         });
     }
   </script>
