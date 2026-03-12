@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>For Lipi 💜</title>
+
+  <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+
+    /* Camera feed behind the scene */
+    #camera-feed {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    /* A-Frame scene sits on top of camera */
+    .a-scene {
+      position: fixed !important;
+      top: 0; left: 0;
+      z-index: 1;
+    }
+
+    /* Start screen overlay */
+    #start-overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.75);
+      color: #fff;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    #start-overlay h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+    #start-overlay p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.85;
+    }
+    #start-btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 2rem;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      color: #fff;
+      cursor: pointer;
+      font-family: 'Georgia', serif;
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.5);
+      transition: transform 0.2s;
+    }
+    #start-btn:active { transform: scale(0.95); }
+
+    /* Hint text that appears after start */
+    #tap-hint {
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      color: #fff;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.75rem 1.5rem;
+      border-radius: 1.5rem;
+      pointer-events: none;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    /* Notification when audio plays */
+    #audio-toast {
+      display: none;
+      position: fixed;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      color: #fff;
+      font-family: 'Georgia', serif;
+      font-size: 1rem;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      padding: 0.75rem 1.5rem;
+      border-radius: 1.5rem;
+      pointer-events: none;
+      animation: fadeInOut 3s ease-in-out forwards;
+    }
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+      15% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      85% { opacity: 1; transform: translateX(-50%) translateY(0); }
+      100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Live camera background -->
+  <video id="camera-feed" autoplay playsinline muted></video>
+
+  <!-- Start overlay — needed on iOS to unlock audio + camera -->
+  <div id="start-overlay">
+    <h1>💜 A Message for Lipi 💜</h1>
+    <p>Tap the button below to open your gift.</p>
+    <button id="start-btn">Open in AR</button>
+  </div>
+
+  <!-- Hint shown after scene loads -->
+  <div id="tap-hint">👆 Tap the gift box to hear a message</div>
+
+  <!-- Toast shown when audio plays -->
+  <div id="audio-toast">🎵 Playing your message…</div>
+
+  <!--
+    Placeholder audio file — REPLACE the src below with your own
+    apology message or song before deploying the app for Lipi.
+    The current URL points to a royalty-free sample from freesound.org.
+  -->
+  <audio id="apology-audio" preload="auto"
+         src="https://cdn.freesound.org/previews/612/612095_5674468-lq.mp3"></audio>
+
+  <!-- ============================================================ -->
+  <!-- A-Frame Scene                                                 -->
+  <!-- ============================================================ -->
+  <a-scene
+    embedded
+    vr-mode-ui="enabled: false"
+    renderer="colorManagement: true; alpha: true"
+    background="color: transparent"
+    loading-screen="enabled: false"
+  >
+    <!-- Lighting -->
+    <a-entity light="type: ambient; color: #ffffff; intensity: 0.6"></a-entity>
+    <a-entity light="type: directional; color: #ffffff; intensity: 0.8"
+              position="1 3 2"></a-entity>
+
+    <!-- Camera with raycaster (touch / tap) -->
+    <a-entity id="rig" position="0 1.6 0">
+      <a-camera
+        wasd-controls-enabled="false"
+        look-controls="touchEnabled: true; magicWindowTrackingEnabled: true"
+        raycaster="objects: .tappable; far: 20"
+        cursor="rayOrigin: mouse; fuse: false"
+      ></a-camera>
+    </a-entity>
+
+    <!-- Gift-box group — positioned in front of viewer -->
+    <a-entity id="gift-group" position="0 0.4 -2.5" gift-bounce>
+
+      <!-- Box body -->
+      <a-box class="tappable" id="gift-box"
+             width="0.6" height="0.6" depth="0.6"
+             color="#a855f7"
+             material="metalness: 0.3; roughness: 0.4"
+             play-audio-on-click>
+      </a-box>
+
+      <!-- Box lid -->
+      <a-box width="0.7" height="0.08" depth="0.7"
+             position="0 0.34 0"
+             color="#ec4899"
+             material="metalness: 0.3; roughness: 0.4"
+             class="tappable"
+             play-audio-on-click>
+      </a-box>
+
+      <!-- Ribbon vertical -->
+      <a-box width="0.08" height="0.62" depth="0.62"
+             color="#facc15"
+             material="metalness: 0.5; roughness: 0.3">
+      </a-box>
+
+      <!-- Ribbon horizontal -->
+      <a-box width="0.62" height="0.62" depth="0.08"
+             color="#facc15"
+             material="metalness: 0.5; roughness: 0.3">
+      </a-box>
+
+      <!-- Glowing apology text floating above the box -->
+      <a-entity id="apology-text"
+                position="0 1.0 0"
+                text="value: I'm so sorry, Lipi.;
+                      align: center;
+                      width: 3;
+                      color: #ffffff;
+                      font: mozillavr"
+                text-glow>
+      </a-entity>
+
+      <!-- Heart emoji decoration -->
+      <a-entity position="0 1.45 0"
+                text="value: 💜;
+                      align: center;
+                      width: 4;
+                      color: #ffffff">
+      </a-entity>
+    </a-entity>
+  </a-scene>
+
+  <!-- ============================================================ -->
+  <!-- Scripts                                                       -->
+  <!-- ============================================================ -->
+  <script>
+    /* -------------------------------------------------- */
+    /*  A-Frame component: play audio on click / tap      */
+    /* -------------------------------------------------- */
+    AFRAME.registerComponent('play-audio-on-click', {
+      init: function () {
+        var el = this.el;
+        el.addEventListener('click', function () {
+          var audio = document.getElementById('apology-audio');
+          if (!audio) return;
+
+          // Show toast
+          var toast = document.getElementById('audio-toast');
+          if (toast) {
+            toast.style.display = 'block';
+            toast.style.animation = 'none';
+            toast.offsetWidth; // force reflow so the animation restarts
+            toast.style.animation = 'fadeInOut 3s ease-in-out forwards';
+          }
+
+          // Play or restart
+          audio.currentTime = 0;
+          audio.play().catch(function (err) {
+            console.warn('Audio playback failed:', err);
+            if (toast) {
+              toast.textContent = '🔇 Tap again to play audio';
+              toast.style.animation = 'none';
+              toast.offsetWidth;
+              toast.style.animation = 'fadeInOut 3s ease-in-out forwards';
+            }
+          });
+
+          // Visual feedback — brief scale pulse on the gift box
+          var box = document.getElementById('gift-box');
+          if (box) {
+            box.setAttribute('animation__pulse', {
+              property: 'scale',
+              to: '1.15 1.15 1.15',
+              dur: 150,
+              easing: 'easeOutQuad',
+              loop: false
+            });
+            setTimeout(function () {
+              box.setAttribute('animation__pulse', {
+                property: 'scale',
+                to: '1 1 1',
+                dur: 300,
+                easing: 'easeInOutQuad',
+                loop: false
+              });
+            }, 160);
+          }
+        });
+      }
+    });
+
+    /* -------------------------------------------------- */
+    /*  A-Frame component: gentle floating bounce          */
+    /* -------------------------------------------------- */
+    AFRAME.registerComponent('gift-bounce', {
+      init: function () {
+        this.el.setAttribute('animation', {
+          property: 'position',
+          to: '0 0.55 -2.5',
+          dir: 'alternate',
+          dur: 2000,
+          easing: 'easeInOutSine',
+          loop: true
+        });
+      }
+    });
+
+    /* -------------------------------------------------- */
+    /*  A-Frame component: glowing text effect (color      */
+    /*  oscillation to simulate glow)                     */
+    /* -------------------------------------------------- */
+    AFRAME.registerComponent('text-glow', {
+      init: function () {
+        this.el.setAttribute('animation__glow', {
+          property: 'text.color',
+          from: '#ffffff',
+          to: '#e879f9',
+          dir: 'alternate',
+          dur: 1500,
+          easing: 'easeInOutSine',
+          loop: true
+        });
+      }
+    });
+
+    /* -------------------------------------------------- */
+    /*  Camera + start flow                               */
+    /* -------------------------------------------------- */
+    document.getElementById('start-btn').addEventListener('click', function () {
+      var overlay = document.getElementById('start-overlay');
+      var hint    = document.getElementById('tap-hint');
+
+      // Start camera
+      startCamera();
+
+      // Unlock audio context on iOS (user gesture)
+      var audio = document.getElementById('apology-audio');
+      if (audio) {
+        audio.play().then(function () { audio.pause(); audio.currentTime = 0; })
+             .catch(function () { /* OK — unlocked on next tap */ });
+      }
+
+      // Hide overlay, show hint
+      overlay.style.display = 'none';
+      hint.style.display    = 'block';
+
+      // Auto-hide hint after 5 seconds
+      setTimeout(function () { hint.style.display = 'none'; }, 5000);
+    });
+
+    /* -------------------------------------------------- */
+    /*  Start rear camera (environment facing)            */
+    /* -------------------------------------------------- */
+    function startCamera() {
+      var video = document.getElementById('camera-feed');
+      if (!video) return;
+
+      var constraints = {
+        video: {
+          facingMode: { ideal: 'environment' },
+          width:  { ideal: 1920 },
+          height: { ideal: 1080 }
+        },
+        audio: false
+      };
+
+      navigator.mediaDevices.getUserMedia(constraints)
+        .then(function (stream) {
+          video.srcObject = stream;
+          video.play();
+        })
+        .catch(function (err) {
+          console.warn('Camera access denied:', err);
+          // Scene still works without AR camera background
+          video.style.background = '#1a1a2e';
+          var hint = document.getElementById('tap-hint');
+          if (hint) {
+            hint.textContent = '📷 Camera unavailable — tap the gift box to hear a message';
+            hint.style.display = 'block';
+          }
+        });
+    }
+  </script>
+</body>
+</html>
