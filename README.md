@@ -21,7 +21,7 @@
   </p>
   
   <p align="center">
-    <em>Passionate about creating scalable systems and designing solutions that simplify complex problems.</em>
+    <em>Passionate about creating scalable systems and Momos.</em>
   </p>
   
   <br>
@@ -37,15 +37,4 @@
     <img src="https://img.shields.io/badge/Portfolio-252525?style=for-the-badge" alt="Portfolio" />
   </a>
 
-  <br><br><br>
-
-  <h1>✨ 🛠️ Arcanum of Tools & Skills ✨</h1>
-  
-  <br>
-
-  <h3>Core Programming & Scripting</h3>
-  <p align="center">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" height="80" /> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" height="80" /> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" height="80" /> &nbsp;&nbsp;&nbsp;&nbsp;
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" height="80" />
+ 
