@@ -8,7 +8,7 @@
 
   <br><br>
 
-  <img src="https://readme-typing-svg.demolab.com?font=Inconsolata&weight=500&size=40&duration=4000&pause=300&color=D4AF37&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=1000&height=100&lines=Hello+Traveler,+you+are+at+Haniya's+Domain;a+place+for+Software+Engineering+%E2%9C%A9" alt="Typing effect" />
+  <img src="https://readme-typing-svg.demolab.com?font=Inconsolata&weight=500&size=40&duration=4000&pause=300&color=D4AF37&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=1000&height=100&lines=Hello+Traveler,+you+are+at+Haniya's+Domain+%E2%9C%A9" alt="Typing effect" />
   
   <br><br>
 
