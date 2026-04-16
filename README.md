@@ -8,19 +8,22 @@
 
   <br><br>
 
-  <img src="https://readme-typing-svg.demolab.com?font=Inconsolata&weight=500&size=40&duration=4000&pause=300&color=D4AF37&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=800&height=100&lines=Greetings+Traveler;I+blend+Software+Engineering+with+Mechanical+Design+%E2%9C%A9" alt="Typing effect" />
+  <img src="https://readme-typing-svg.demolab.com?font=Inconsolata&weight=500&size=40&duration=4000&pause=300&color=D4AF37&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=1300&height=140&lines=Hello+Traveler,+you+are+at+Haniya's+Arcanum,;the+nexus+of+Software+Engineering+and+Mechanical+Design+%E2=9C=A9" alt="Typing effect" />
   
   <br><br>
 
   <p align="center">
-    <img src="https://img.shields.io/badge/Institution-Indian%20Institute%20of%20Technology-173c2d?style=for-the-badge" alt="IIT" />
+    <img src="https://img.shields.io/badge/Institution-Indian%20Institute%20of%20Technology%20Madras-173c2d?style=for-the-badge" alt="IIT Madras" />
+  </p>
+  <p align="center">
     <img src="https://img.shields.io/badge/Degree-B.Tech%20Undergrad-D4AF37?style=for-the-badge" alt="B.Tech" />
-    <img src="https://img.shields.io/badge/Class-Developer%20%26%20Designer-252525?style=for-the-badge" alt="Role" />
+  </p>
+  <p align="center">
+    <img src="https://img.shields.io/badge/House-Slytherin-2a623d?style=for-the-badge&logo=harrypotter&logoColor=silver" alt="Slytherin House" />
   </p>
   
   <p align="center">
-    <em>Weaving the logic of code with the physical precision of mechanical design.</em><br>
-    <b>Core Focus:</b> Scalable web architecture, hardware design, and elegant engineering solutions.
+    <em>My passion lies at the intersection of bits and atoms, crafting elegant solutions from code to physical prototypes.</em>
   </p>
   
   <br>
@@ -29,10 +32,10 @@
   
   <br><br>
 
-  <a href="https://linkedin.com/in/YOUR_LINKEDIN_HERE">
+  <a href="https://www.linkedin.com/in/tarh-haniya">
     <img src="https://img.shields.io/badge/LinkedIn-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
   </a>
-  <a href="https://yourname.me">
+  <a href="https://haniya.me/">
     <img src="https://img.shields.io/badge/Portfolio-252525?style=for-the-badge&logo=github&logoColor=D4AF37" alt="Portfolio" />
   </a>
 
