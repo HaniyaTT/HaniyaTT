@@ -24,9 +24,9 @@
     <em>Passionate about creating scalable systems and Momos.</em>
   </p>
   
-  <br>
+  <br><br>
   
-  <h2>✨ 🪄 ✨<h2>
+  <h3>✨ 🪄 ✨</h3>
   
   <br><br>
 
@@ -37,5 +37,8 @@
     <img src="https://img.shields.io/badge/Portfolio-252525?style=for-the-badge" alt="Portfolio" />
   </a>
 
+  <br><br><br>
  
-  <h2>✨ 🪄 ✨<h2>
+  <h3>✨ 🪄 ✨</h3>
+
+</div>
