@@ -1,35 +1,22 @@
-<p align="center">
-  <img src="https://i.ibb.co/X8xS1T5/elvish-banner-ornate-green-gold.png" width="100%" alt="Elvish Themed Header" />
-</p>
+<div align="center">
 
-<h1 align="center">🛠️ Arcanum of Tools & Skills</h1>
+<img src="https://readme-typing-svg.demolab.com?font=Inconsolata&weight=500&size=40&duration=4000&pause=300&color=D4AF37&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=800&height=100&lines=Greetings+Traveler;I+blend+Software+Engineering+with+Mechanical+Design+%E2%9C%A9" />
 
-<br>
+<br><br>
 
-<h3 align="center">Core Programming & Scripting</h3>
-
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" height="120" width="120" style="margin: 20px;" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" height="120" width="120" style="margin: 20px;" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" height="120" width="120" style="margin: 20px;" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" height="120" width="120" style="margin: 20px;" />
-</p>
+<pre>
+    🎓 B.Tech Undergrad • Developer • Designer
+    ⚙️ CAD & Design: SolidWorks • AutoCAD
+    💻 Core Logic: C • C++ • Python • JavaScript
+    🌐 Web Tech: HTML5 • CSS3 • React
+    🎯 Interests: Building scalable apps & precision mechanics
+</pre>
 
 <br>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magic%20Wand.png" alt="Magic Wand" width="45" height="45" />
+<br><br>
 
-<h3 align="center">Web Technologies</h3>
+[![](https://img.shields.io/badge/LinkedIn-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/)
+[![](https://img.shields.io/badge/Portfolio-252525?style=for-the-badge&logo=github&logoColor=white)](https://yourname.me)
 
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg" alt="React" height="120" width="120" style="margin: 20px;" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" height="120" width="120" style="margin: 20px;" />
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3" height="120" width="120" style="margin: 20px;" />
-</p>
-
-<br>
-
-<h3 align="center">CAD & Engineering Design</h3>
-
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/0/0f/SolidWorks_logo.svg/320px-SolidWorks_logo.svg.png" alt="SolidWorks" height="120" width="auto" style="margin: 20px; padding: 10px; filter: drop-shadow(0px 0px 8px rgb(255, 255, 255));" />
-  <img src="https://cdn.icon-icons.com/icons2/2397/PNG/512/autodesk_autocad_logo_icon_145610.png" alt="AutoCAD" height="120" width="auto" style="margin: 20px; filter: drop-shadow(0px 0px 8px rgb(255, 255, 255));" />
-</p>
+</div>
