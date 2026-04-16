@@ -1,7 +1,11 @@
 <div align="center">
 
-  <img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?q=80&w=2000&auto=format&fit=crop" width="100%" alt="Elvish Themed Header" />
-  
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HaniyaTT/HaniyaTT/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/HaniyaTT/HaniyaTT/output/github-contribution-grid-snake.svg" />
+    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/HaniyaTT/HaniyaTT/output/github-contribution-grid-snake.svg" width="100%" />
+  </picture>
+
   <br><br>
 
   <img src="https://readme-typing-svg.demolab.com?font=Inconsolata&weight=500&size=40&duration=4000&pause=300&color=D4AF37&center=true&vCenter=true&multiline=true&repeat=false&random=false&width=800&height=100&lines=Greetings+Traveler;I+blend+Software+Engineering+with+Mechanical+Design+%E2%9C%A9" alt="Typing effect" />
@@ -62,14 +66,5 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/SolidWorks_Logo.svg/512px-SolidWorks_Logo.svg.png" alt="SolidWorks" height="80" /> &nbsp;&nbsp;&nbsp;&nbsp;
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Autodesk_AutoCAD_2022_logo.svg/512px-Autodesk_AutoCAD_2022_logo.svg.png" alt="AutoCAD" height="80" />
   </p>
-
-  <br><br><br>
-
-  <h3>🐉 Contribution Arcanum</h3>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/HaniyaTT/HaniyaTT/output/github-contribution-grid-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/HaniyaTT/HaniyaTT/output/github-contribution-grid-snake.svg" />
-    <img alt="github contribution grid snake animation" src="https://raw.githubusercontent.com/HaniyaTT/HaniyaTT/output/github-contribution-grid-snake.svg" width="100%" />
-  </picture>
 
 </div>
